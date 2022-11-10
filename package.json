@@ -1,5 +1,26 @@
 {
   "devDependencies": {
-    "eslint": "^8.27.0"
-  }
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "name": "api_tdd",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nilson-Sj/Api_Tdd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nilson-Sj/Api_Tdd/issues"
+  },
+  "homepage": "https://github.com/Nilson-Sj/Api_Tdd#readme",
+  "keywords": []
 }
