@@ -1,16 +1,14 @@
-function helloWorld(){
-    
-    // TODO resolver isso aqui
+function helloWorld() {
+
     console.log('Hello World!');
 }
 
 const saudacao = () => {
-    // FIXME melhorar esse código
-    var data = new Date()
-    return data.getHours() <= 12? "Bom dia!": data.getDate() <= 18? "Boa tarde!": "Boa noite!";
-}
-                                                                                                            
-// Comentário
+    
+    const hora = new Date().getHours();
+    if(hora<= 12) return 'Bom Dia!';
+    if(hora<= 18) return 'Bom Tarde!';
+    return 'Boa Noite!';
 
 helloWorld();
-console.log(`A saudação do momento é ` + saudacao());
+    console.log(`A saudação do momento é  ${saudacao()}`)};
