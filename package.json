@@ -3,7 +3,8 @@
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "supertest": "3.3.0"
   },
   "name": "api_tdd",
   "description": "",
@@ -23,5 +24,8 @@
     "url": "https://github.com/Nilson-Sj/Api_Tdd/issues"
   },
   "homepage": "https://github.com/Nilson-Sj/Api_Tdd#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "express": "4.16.4"
+  }
 }
