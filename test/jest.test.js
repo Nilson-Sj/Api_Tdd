@@ -1,3 +1,7 @@
+/* eslint-disable semi */
+/* eslint-disable quotes */
+/* eslint-disable indent */
+/* eslint-disable no-undef */
 test('Devo conhecer as principais assertivas do jest', () => {
   let number = null;
   expect(number).toBeNull();
