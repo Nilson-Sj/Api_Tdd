@@ -11,8 +11,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "jest",
-    "lint": "eslint src/** test/** --fix"
+    "lint": "eslint src/** test/** --fix",
+    "secure-mode": "jest --watch --verbose=true"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "homepage": "https://github.com/Nilson-Sj/Api_Tdd#readme",
   "keywords": [],
   "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "express": "4.16.4"
   }
 }
