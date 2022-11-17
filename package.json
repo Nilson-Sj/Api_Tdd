@@ -29,6 +29,8 @@
   "keywords": [],
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "body-parser": "1.18.3",
+    "consign": "0.1.6",
     "express": "4.16.4"
   }
 }
