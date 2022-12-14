@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+/* eslint-disable semi */
+/* eslint-disable indent */
+/* eslint-disable no-undef */
 
 exports.up = (knex) => {
   return knex.schema.createTable('users', (t) =>{
