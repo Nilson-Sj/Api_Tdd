@@ -25,7 +25,7 @@ test('Deve inserir uma conta com sucesso', () => {
 
 test('Deve listar todas as contas', () => {
   return app.db('accounts')
-    .insert({ name: 'Acc list', user_id: user.id })
+    .insert({ name: 'Acc List', user_id: user.id })
     .then(() => request(app).get(MAIN_ROUTE))
     .then((res) => {
       expect(res.status).toBe(200);
@@ -52,5 +52,14 @@ test('Deve alterar uma conta', () => {
     .then((res) => {
       expect(res.status).toBe(200);
       expect(res.body.name).toBe('Acc Updated');
+    });
+});
+
+test('Deve remover uma conta', () => {
+  return app.db('accounts')
+    .insert({ name: 'Acc To Remove', user_id: user.id }, ['id'])
+    .then(acc => request(app).delete(`${MAIN_ROUTE}/${acc[0].id}`))
+    .then((res) => {
+      expect(res.status).toBe(204);
     });
 });
