@@ -5,6 +5,7 @@ module.exports = (app) => {
   const create = (req, res) => {
     app.services.account.save(req.body)
       .then((result) => {
+        if (result.error) return res.status(400).json(result);
         return res.status(201).json(result[0]);
       });
   };
@@ -15,7 +16,7 @@ module.exports = (app) => {
   };
 
   const get = (req, res) => {
-    app.services.account.find({id: req.params.id})
+    app.services.account.find({ id: req.params.id })
       .then(result => res.status(200).json(result));
   };
 
@@ -30,6 +31,6 @@ module.exports = (app) => {
   };
 
   return {
-     create, getAll, get, update, remove,
-    };
+    create, getAll, get, update, remove,
+  };
 };
