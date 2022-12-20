@@ -24,9 +24,21 @@ test('Deve inserir usuário com sucesso!', () => {
     .send({ name: 'Walter Mitty', mail, passwd: '123456' })
     .then((res) => {
       expect(res.status).toBe(201);
-      expect(res.body.name).toBe('Walter Mitty')
+      expect(res.body.name).toBe('Walter Mitty');
+      expect(res.body).not.toHaveProperty('passwd');
     });
 
+});
+
+test('Deve armazenar senha criptografada', async () => {
+  const res = await request(app).post('/users')
+    .send({ name: 'Walter Mitty', mail: `${Date.now()}@mail.com`, passwd: '123456' });
+  expect(res.status).toBe(201);
+
+  const { id } = res.body;
+  const userDB = await app.services.user.findOne({ id });
+  expect(userDB.passwd).not.toBeUndefined();
+  expect(userDB.passwd).not.toBe('123456');
 });
 
 test('Não deve inserir usuário sem nome', () => {
@@ -41,14 +53,14 @@ test('Não deve inserir usuário sem nome', () => {
 test('Não deve inserir usuário sem email', async () => {
   const result = await request(app).post('/users')
     .send({ name: 'Walter Mitty', passwd: '123456' });
-      expect(result.status).toBe(400);
-      expect(result.body.error).toBe('Email é um atributo obrigatório');
+  expect(result.status).toBe(400);
+  expect(result.body.error).toBe('Email é um atributo obrigatório');
 });
 
 test('Não deve inserir usuário sem senha', (done) => {
   request(app).post('/users')
     .send({ name: 'Walter Mitty', mail: 'walter@mail.com' })
-    .then ((res) => {
+    .then((res) => {
       expect(res.status).toBe(400);
       expect(res.body.error).toBe('Senha é um atributo obrigatório');
       done();
