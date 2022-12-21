@@ -20,10 +20,16 @@ module.exports = (app) => {
 
   const update = (id, transaction) => {
     return app.db('transactions')
-      .where({id})
+      .where({ id })
       .update(transaction, '*');
   };
 
+  const remove = (id) => {
+    return app.db('transactions')
+      .where({ id })
+      .del();
+  };
 
-  return { find, save, findOne, update };
+
+  return { find, save, findOne, update, remove };
 };
