@@ -17,6 +17,7 @@ module.exports = (app) => {
 
   const save = (transaction) => {
     if (!transaction.description) throw new ValidationError('Descrição é um atributo obrigatório');
+    if (!transaction.ammount) throw new ValidationError('Valor é um atributo obrigatório');
 
 
     const newTransaction = { ...transaction}
