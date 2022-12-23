@@ -17,7 +17,7 @@ module.exports = (app) => {
 
   const save = (transaction) => {
     if (!transaction.description) throw new ValidationError('Descrição é um atributo obrigatório');
-    if (!transaction.ammount) throw new ValidationError('Valor é um atributo obrigatório');
+    if (!transaction.amount) throw new ValidationError('Valor é um atributo obrigatório');
     if (!transaction.date) throw new ValidationError('Data é um atributo obrigatório');
     if (!transaction.acc_id) throw new ValidationError('Conta é um atributo obrigatório');
     if (!transaction.type) throw new ValidationError('Tipo é um atributo obrigatório');
@@ -25,9 +25,9 @@ module.exports = (app) => {
 
 
     const newTransaction = { ...transaction}
-    if((transaction.type === 'I' && transaction.ammount < 0)
-    || (transaction.type === 'O' && transaction.ammount > 0)) {
-      newTransaction.ammount *= -1;
+    if((transaction.type === 'I' && transaction.amount < 0)
+    || (transaction.type === 'O' && transaction.amount > 0)) {
+      newTransaction.amount *= -1;
     }
 
     return app.db('transactions')
