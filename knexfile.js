@@ -12,8 +12,7 @@ module.exports = {
       password: '123456',
       database: 'Barriga',
     },
-    migrations: {
-      directory: 'src/migrations',
-    }, 
+    migrations: { directory: 'src/migrations' },
+    seeds: { directory: 'src/seeds' },
   },
 };
