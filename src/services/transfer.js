@@ -9,6 +9,12 @@ module.exports = (app) => {
       .select();
   };
 
+  const findOne = (filter = {}) => {
+    return app.db('transfers')
+      .where(filter)
+      .first();
+  };
+
   const save = async (transfer) => {
     if (!transfer.description) throw new ValidationError('Descrição é um atributo obrigatório');
     if (!transfer.amount) throw new ValidationError('Valor é um atributo obrigatório');
@@ -19,7 +25,7 @@ module.exports = (app) => {
 
     const accounts = await app.db('accounts').whereIn('id', [transfer.acc_dest_id, transfer.acc_ori_id]);
     accounts.forEach((acc) => {
-      if (acc.user_id !== parseInt(transfer.user_id, 10)) throw new ValidationError(`Conta #${acc.id} não pertence ao usuário`)
+      if (acc.user_id !== parseInt(transfer.user_id, 10)) throw new ValidationError(`Conta #${acc.id} não pertence ao usuário`);
     });
 
     const result = await app.db('transfers').insert(transfer, '*');
@@ -34,5 +40,5 @@ module.exports = (app) => {
     return result;
   };
 
-  return { find, save };
+  return { find, save, findOne };
 };
