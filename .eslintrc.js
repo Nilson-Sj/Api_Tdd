@@ -6,10 +6,11 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 2017
     },
-    
+
     "parser": "babel-eslint",
 
     "rules": {
+        "no-undef": "error",
         "indent": [
             "error",
             "tab"
@@ -25,6 +26,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
+        ], "no-unused-vars": [
+            "error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
         ]
     }
 };

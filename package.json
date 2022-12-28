@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -29,6 +30,11 @@
     "lint": "eslint src/** test/** --fix",
     "secure-mode": "jest --watch --verbose=true --runInBand"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint &&npm test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nilson-Sj/Api_Tdd.git"
@@ -46,6 +52,7 @@
     "body-parser": "1.18.3",
     "consign": "0.1.6",
     "express": "4.16.4",
+    "husky": "1.2.0",
     "jwt-simple": "0.5.5",
     "knex": "0.15.2",
     "knex-logger": "^0.1.0",

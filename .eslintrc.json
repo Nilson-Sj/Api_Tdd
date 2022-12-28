@@ -5,6 +5,9 @@
     "extends": "airbnb-base",
     "rules": {
         "no-console": "off",
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "no-undef": "off",
+        "no-undef-init": "off",
+        "no-unused-vars": "off"
     }
 }
